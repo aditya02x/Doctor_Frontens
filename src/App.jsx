@@ -21,6 +21,7 @@ const App = () => {
         <Route path='/patient/dashboard' element={<PatientDashboard />} />
         <Route path='/doctor/dashboard' element={<DoctorDashboard />} />
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
+        <Route path='/patient/book/:doctorId' element={<BookAppointment />} />
       </Routes>
     </AuthProvider>
   )
