@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import Login from './pages/auth/Login'
 import Signup from './pages/auth/Signup'
-import PatientDashboard from './pages/patitient/Appintements'
+import PatientDashboard from './pages/patitient/Dashboard'
 import DoctorDashboard from './pages/doctor/Dashboard'
 import AdminDashboard from './pages/admin/Dashboard'
 
@@ -21,7 +21,7 @@ const App = () => {
         <Route path='/patient/dashboard' element={<PatientDashboard />} />
         <Route path='/doctor/dashboard' element={<DoctorDashboard />} />
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
-        <Route path='/patient/book/:doctorId' element={<BookAppointment />} />
+       
       </Routes>
     </AuthProvider>
   )
