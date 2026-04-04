@@ -9,6 +9,7 @@ import Signup from './pages/auth/Signup'
 import PatientDashboard from './pages/patitient/Dashboard'
 import DoctorDashboard from './pages/doctor/Dashboard'
 import AdminDashboard from './pages/admin/Dashboard'
+import BookAppointment from './pages/patitient/BookAppointment'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Signup />} />
         <Route path='/patient/dashboard' element={<PatientDashboard />} />
+        <Route path='/bookappointment' element={<BookAppointment/>} />
         <Route path='/doctor/dashboard' element={<DoctorDashboard />} />
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
        
