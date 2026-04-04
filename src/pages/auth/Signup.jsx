@@ -1,23 +1,34 @@
-import React , {useState} from 'react'
 
+import React , {useState} from 'react'
+import axios from '../../utils/axios.js'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
   const [name , setName]=useState("")
   const [email, setEmail]=useState("")
   const [password, setPassword]=useState("")
   const [phone, setPhone]=useState("")
+  const navigate = useNavigate()
   
-  
-  function handleSignup(e) {
+  const handleSignup = async (e) => {
     e.preventDefault()
+    
 
-    const userData = {
+    try {
+      const userData = {
       name,
       email,
       password,
       phone
     }
-    console.log(userData);
+    const res = await axios.post('/auth/register',userData)
+    toast.success('Account created SUcessfuly')
+    navigate('/login')
+      
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Something went wrong");
+    }
     // Handle signup logic here
   }
   return (
