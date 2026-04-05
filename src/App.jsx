@@ -10,7 +10,7 @@ import PatientDashboard from './pages/patitient/Dashboard'
 import DoctorDashboard from './pages/doctor/Dashboard'
 import AdminDashboard from './pages/admin/Dashboard'
 import BookAppointment from './pages/patitient/BookAppointment'
-
+import PatientAppointments from './pages/patitient/BookAppointment'
 const App = () => {
   return (
     <AuthProvider>
@@ -23,7 +23,7 @@ const App = () => {
         <Route path='/patient/book/:doctorId'  element={<BookAppointment/>} />
         <Route path='/doctor/dashboard' element={<DoctorDashboard />} />
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
-       
+       <Route path='/patient/appointments' element={<PatientAppointments />} />
       </Routes>
     </AuthProvider>
   )
