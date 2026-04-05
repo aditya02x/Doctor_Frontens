@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../utils/axios.js'
 
 const BookAppointment = () => {
   const { doctorId } = useParams()
@@ -8,12 +8,13 @@ const BookAppointment = () => {
   const [slots, setSlots] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [selectedSlot , setSelectedSlot] = useState(null)
 
   useEffect(() => {
     const fetchSlots = async () => {
       try {
         setLoading(true)
-        const res = await axios.get(`/slots/${doctorId}`)
+        const res = await axios.get(`/slot/${doctorId}`) 
 
         console.log('API Response:', res.data)
 
@@ -38,8 +39,8 @@ const BookAppointment = () => {
   return (
     <div>
       {slots.map((slot) => (
-        <div key={slot._id}>
-          <p>
+        <div style={{border:selectedSlot === slot._id ? '2px solid blue':'1px solid gray'}} key={slot._id}  onClick={()=> setSelectedSlot(slot._id) }>
+          <p >
             {slot.date} — {slot.startTime} to {slot.endTime}
           </p>
           <button>Book Now</button>
