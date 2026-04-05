@@ -10,7 +10,7 @@ import PatientDashboard from './pages/patitient/Dashboard'
 import DoctorDashboard from './pages/doctor/Dashboard'
 import AdminDashboard from './pages/admin/Dashboard'
 import BookAppointment from './pages/patitient/BookAppointment'
-import PatientAppointments from './pages/patitient/BookAppointment'
+import PatientAppointments from './pages/patitient/Appointements'
 const App = () => {
   return (
     <AuthProvider>

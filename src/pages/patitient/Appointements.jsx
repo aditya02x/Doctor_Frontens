@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from '../../utils/axios.js'
 
-const PatientsAppointments = () => {
+const Appointments = () => {
   const [appointments, setAppointments] = useState([])
 
   useEffect(() => {
@@ -31,4 +31,4 @@ const PatientsAppointments = () => {
   )
 }
 
-export default PatientsAppointments
+export default Appointments
