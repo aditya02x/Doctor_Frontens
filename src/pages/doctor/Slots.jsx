@@ -92,15 +92,11 @@ const Slots = () => {
         />
 
         {/* Button */}
-        <button
-          type='submit'
-          disabled={loading}
-          className='w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition disabled:opacity-50'>
-          {loading ? 'Creating...' : 'Create Slot'}
-        </button>
+    
 
       </form>
     </div>
   )
 }
 
+export default Slots
