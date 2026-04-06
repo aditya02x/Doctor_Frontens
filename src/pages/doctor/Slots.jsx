@@ -1,4 +1,6 @@
-
+import axios from '../../utils/axios.js'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Slots = () => {
   const [day, setDay] = useState('')
