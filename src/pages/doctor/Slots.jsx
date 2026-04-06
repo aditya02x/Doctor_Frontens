@@ -1,8 +1,11 @@
-import axios from '../../utils/axios.js'
-import React, { useState } from 'react'
-import { toast } from 'react-toastify'
+
 
 const Slots = () => {
+  const [day, setDay] = useState('')
+  const [date, setDate] = useState('')
+  const [startTime, setStartTime] = useState('')
+  const [endTime, setEndTime] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleCreateSlot = async (e) => {
     e.preventDefault()
