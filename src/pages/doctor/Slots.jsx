@@ -12,9 +12,6 @@ const Slots = () => {
   const handleCreateSlot = async (e) => {
     e.preventDefault()
 
-    if (!day || !date || !startTime || !endTime) {
-      return toast.error('All fields are required')
-    }
 
     try {
       setLoading(true)
