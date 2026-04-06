@@ -19,7 +19,12 @@ const Slots = () => {
     try {
       setLoading(true)
 
-   
+      await axios.post('/slot/create', {
+        day,
+        date,
+        startTime,
+        endTime
+      })
 
       toast.success('Slot created successfully')
 
@@ -52,15 +57,7 @@ const Slots = () => {
           value={day}
           onChange={(e) => setDay(e.target.value)}
           className='w-full border px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'>
-          <option value=''>Select Day</option>
-          <option>Monday</option>
-          <option>Tuesday</option>
-          <option>Wednesday</option>
-          <option>Thursday</option>
-          <option>Friday</option>
-          <option>Saturday</option>
-          <option>Sunday</option>
-        </select>
+       
 
         {/* Date */}
         <input
