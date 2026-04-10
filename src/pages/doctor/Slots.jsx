@@ -111,4 +111,3 @@ const Slots = () => {
   )
 }
 
-export default Slots
