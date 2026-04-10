@@ -19,11 +19,11 @@ const Slots = () => {
 
     // ✅ Time validation
     if (startTime >= endTime) {
-      return toast.error('End time must be greater than start time')
+      return toast.errr('End time must be greater than start time')
     }
 
     try {
-  
+      setLoading(true)
 
       await axios.post('/slot/create', {
         day,
