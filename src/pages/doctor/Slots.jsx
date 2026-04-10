@@ -23,7 +23,7 @@ const Slots = () => {
     }
 
     try {
-      setLoading(true)
+  
 
       await axios.post('/slot/create', {
         day,
@@ -35,7 +35,10 @@ const Slots = () => {
       toast.success('Slot created successfully')
 
       // ✅ Reset form
-     
+      setDay('')
+      setDate('')
+      setStartTime('')
+      setEndTime('')
 
     } catch (error) {
       toast.error(error?.response?.data?.message || 'Error creating slot')
