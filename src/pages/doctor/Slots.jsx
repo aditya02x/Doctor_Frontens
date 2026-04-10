@@ -19,7 +19,7 @@ const Slots = () => {
 
     // ✅ Time validation
     if (startTime >= endTime) {
-      return toast.errr('End time must be greater than start time')
+      return toast.error('End time must be greater than start time')
     }
 
     try {
