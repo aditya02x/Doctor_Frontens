@@ -9,9 +9,17 @@ const Slots = () => {
   const [endTime, setEndTime] = useState('')
   const [loading, setLoading] = useState(false)
 
+  const handleCreateSlot = async (e) => {
+    e.preventDefault()
 
+    // ✅ Basic validation
     if (!day || !date || !startTime || !endTime) {
       return toast.error('All fields are required')
+    }
+
+    // ✅ Time validation
+    if (startTime >= endTime) {
+      return toast.error('End time must be greater than start time')
     }
 
     try {
@@ -26,11 +34,8 @@ const Slots = () => {
 
       toast.success('Slot created successfully')
 
-      // reset form
-      setDay('')
-      setDate('')
-      setStartTime('')
-      setEndTime('')
+      // ✅ Reset form
+     
 
     } catch (error) {
       toast.error(error?.response?.data?.message || 'Error creating slot')
@@ -41,11 +46,10 @@ const Slots = () => {
 
   return (
     <div className='min-h-screen bg-gray-50 flex items-center justify-center px-4'>
-
       <form
         onSubmit={handleCreateSlot}
-        className='bg-white p-6 rounded-2xl shadow-md w-full max-w-md space-y-4'>
-
+        className='bg-white p-6 rounded-2xl shadow-md w-full max-w-md space-y-4'
+      >
         <h2 className='text-xl font-semibold text-gray-800 text-center'>
           Create Slot
         </h2>
@@ -54,7 +58,8 @@ const Slots = () => {
         <select
           value={day}
           onChange={(e) => setDay(e.target.value)}
-          className='w-full border px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'>
+          className='w-full border px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
+        >
           <option value=''>Select Day</option>
           <option>Monday</option>
           <option>Tuesday</option>
@@ -70,6 +75,7 @@ const Slots = () => {
           type='date'
           value={date}
           onChange={(e) => setDate(e.target.value)}
+          min={new Date().toISOString().split('T')[0]} // ✅ no past dates
           className='w-full border px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
         />
 
@@ -93,10 +99,10 @@ const Slots = () => {
         <button
           type='submit'
           disabled={loading}
-          className='w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition disabled:opacity-50'>
+          className='w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition disabled:opacity-50'
+        >
           {loading ? 'Creating...' : 'Create Slot'}
         </button>
-
       </form>
     </div>
   )
